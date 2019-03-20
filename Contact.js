@@ -4,9 +4,24 @@ function Contact(first, second, number, email, address) {
   this.secondName = second;
   this.phoneNumber = number;
   this.email = email;
-  this.address = address;
+  this.street = '';
+  this.city = '';
+  this.country = '';
+
 }
-// Create a Contact object
-var mycontact = new Contact ("Peter", "angusa", 0774517237, "peter.angusa@outlook.com", "Plot 65, Kampala")
+//JavaScript prototype property allows you to add new methods to objects constructors
+
+Contact.prototype.address = function() {
+  return this.street + ', ' + this.city + ', ' + this.country;
+}
+var mycontact = new Contact ("Peter", "angusa", "0774517237", "peter.angusa@outlook.com")
+
+// Display address details on console
+mycontact.street = 'Lumumba Avenue';
+mycontact.city = 'Kampala';
+mycontact.country = 'Uganda';
+
 // Display contact details on console
-mycontact.firstName
+ mycontact.firstName + " " + mycontact.secondName + " " + mycontact.phoneNumber+ " " + mycontact.email+ " " + mycontact.address()
+
+mycontact
